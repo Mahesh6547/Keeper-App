@@ -1,18 +1,18 @@
 import React from "react";
-import notes from "../notes";
 
+function Note(props) {
 
+    function handleClick(){
+        props.onDelete(props.id);
+    }
 
-function Note(){
     return (
-        notes.map(note => 
-            <div className="note">
-                <h1>{note.title}</h1>
-                <p>{note.content}</p>
-            </div>
-            )
-    );
+        <div className="note">
+        <h1>{props.title}</h1>
+        <p>{props.content}</p>
+        <button onClick={handleClick}>DELETE</button>
+        </div>
+  );
 }
-
 
 export default Note;
